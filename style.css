@@ -13,53 +13,13 @@ Memory
  */
 
 #plate {
-    width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    width: 90%;
 }
 
 .flip {
     transform: rotateY(180deg);
-}
-
-/*
-Modal Window
- */
-#modal-window {
-    margin-left: 15rem;
-    border: indigo 2px double;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: white -2px -3px 1px ;
-    position: relative;
-    top: 3rem;
-}
-
-#modal-header {
-    background-color: #89e5f5;
-    padding: 1rem;
-}
-
-h1 {
-    text-align: center;
-}
-
-#paragraph {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-#open {
-    margin-top: 1rem;
-    background-color: darkgreen;
-    color: white;
-    margin-left: 2rem;
-}
-
-#close {
-    background-color: red;
-    float: right;
-    color: white;
 }
