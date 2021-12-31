@@ -18,41 +18,36 @@ function shuffle () {
 shuffle();
 
 cards.click(function (){
-    userChoice();
     let div = document.createElement("div");
     div.style.backgroundImage = "url("+ ArrayCards[index] + ArrayCards2[index] + ")";
-    cards.append(div)
-})
-
-//Function to manage user clicks
-function userChoice (index) {
-        if (choice === 2) {
-            //Prevent user from clicking more than twice
-            return;
-        }
-
-        if (choice === 0) {
-            choiceOne = index;
-            choice = 1;
-            ArrayCards[index] = index;
-        } else {
-            choice = 2
-            choiceTwo = index;
-            //create a timeout for the player can look the cards
-            timer = setTimeout('check()', 1000);
-        }
-        console.log("click")
-}
-
-
-
-//check if a pair has been found
-function check(index) {
-    choice = 0;
-    if (ArrayCards[index] === ArrayCards2[index]){
-        pairs = +1;
+    cards.append(div);
+    //condition to manage user clicks
+    if (choice === 2) {
+        //Prevent user from clicking more than twice
+        return;
     }
-    else {
-        pairs = -1;
+
+    if (choice === 0) {
+        choiceOne = index;
+        choice = 1;
+        ArrayCards[index] = index;
+    } else {
+        choice = 2
+        choiceTwo = index;
+        //create a timeout for the player can look the cards
+        timer = setTimeout('check()', 1000);
     }
-}
+    console.log("click")
+
+    //check if a pair has been found
+
+    function check(index) {
+        if (ArrayCards[index] === ArrayCards2[index]){
+            pairs = +1;
+        }
+        else {
+            pairs = -1;
+        }
+    }
+});
+
