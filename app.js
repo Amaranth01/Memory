@@ -1,57 +1,30 @@
-const ArrayCards = ["cards/image (2)","cards/image (6)","cards/image (5)","cards/image (1)","cards/image (4)","cards/image (3)"];
-const ArrayCards2 = ["cards/image (2)","cards/image (6)","cards/image (5)","cards/image (1)","cards/image (4)","cards/image (3)"];
-
-let choice = 0;
+let arrayCards = ["cards/image(2)","cards/image(6)","cards/image(5)","cards/image(1)","cards/image(4)","cards/image(3)","cards/image(2)","cards/image(6)","cards/image(5)","cards/image(4)","cards/image(1)","cards/image(3)"];
+let click = 0;
 let index = 0;
 let timer;
 let pairs = document.getElementById('pairs');
 let cards = $('.cards');
-let div = document.createElement("div");
+let back = $('.back');
 
-function shuffle () {
-    for (let i = 0; i < ArrayCards.length + ArrayCards2.length; i++) {
-       Math.floor(Math.random() * i);
-        div.style.backgroundImage = "url("+ ArrayCards[index] + ArrayCards2[index] + ".png)";
-        cards.append(div);
-        console.log("shuffle");
-        //boucle prise en compte
-    }
-}
-shuffle();
+
+arrayCards.sort = (()=> 0.5 - Math.random());
+console.log(arrayCards); //mélange OK
 
 cards.click(function (){
-    div.style.backgroundImage = "url("+ ArrayCards[index] + ArrayCards2[index] + ".png)";
-    cards.append(div);
+    click++;
 
-    //condition to manage user clicks
-    if (choice === 2) {
-        //Prevent user from clicking more than twice
-        return;
+    //Manage user clicks
+    if (click === 1) {
+        const idx = cards.index($(this));
+        this.style.backgroundImage = "url("+ arrayCards[idx] + ".png)";
+    }
+    else if (click === 2 ) {
+        const idx = cards.index($(this));
+        this.style.backgroundImage = "url("+ arrayCards[idx] + ".png)";
+        click = 0;
     }
 
-    if (choice === 0) {
-        choice = 1;
-        ArrayCards[index] = index;
-        div.style.backgroundImage = "url("+ ArrayCards[index] + ArrayCards2[index] + ".png)";
-        cards.append(div);
-
-    } else {
-        choice = 2;
-        //create a timeout for the player can look the cards
-        timer = setTimeout('check()', 1000);
-        div.style.backgroundImage = "url("+ ArrayCards[index] + ArrayCards2[index] + ".png)";
-        cards.append(div);
+    if (arrayCards[index] === arrayCards[index]) {
+        pairs++;
     }
-    console.log("click");
-    //fonctionne pour le nombre de clique et bloque à 2
 });
-
-//check if a pair has been found
-function check(index) {
-    if (ArrayCards[index] === ArrayCards2[index]){
-        pairs = +1;
-    }
-    else {
-        pairs = -1;
-    }
-}

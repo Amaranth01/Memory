@@ -17,10 +17,10 @@ html {
     height: 20vh;
 }
 
-.cards {
+.back {
     border: 2px solid black;
     border-radius: 10px;
     width: 120px;
     height: 75%;
-    background-image: url("couv.png");
+    background-image: url("cards/couv.png");
 }
