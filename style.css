@@ -9,9 +9,15 @@ html {
 }
 
 body {
-    background-image: url("table.jpg");
+    background-image: url("final-fantasy-xv_0900826112.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 3rem;
 }
 
 .line {
@@ -20,15 +26,15 @@ body {
     justify-content: space-around;
     align-items: center;
     width: 90%;
-    height: 20vh;
-    margin-top: 3rem;
+    height: 25vh;
+    margin-top: 1rem;
 }
 
 .cards {
     border: 2px solid black;
     border-radius: 10px;
-    width: 148px;
-    height: 100%;
+    width: 11rem;
+    height: 15vh;
     background-image: url("cards/couv.png");
 }
 
@@ -44,13 +50,33 @@ body {
 }
 
 #endGame {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 #resume {
     font-size: 5rem;
     color: beige;
+    margin-top: 2rem;
 }
 
+#reload {
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 520px) {
+
+    .line {
+        margin-top: 8rem;
+    }
+}
+
+@media screen and (max-width: 515px) {
+
+    .line {
+        width: 100%;
+    }
+
+    #point {
+        margin-top: 5rem;
+    }
+}
