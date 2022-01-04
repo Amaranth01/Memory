@@ -2,11 +2,12 @@ let arrayCards = ["cards/image(2).png","cards/image(6).png","cards/image(5).png"
 let arrayStock = [];
 let score = 0;
 let pairs = document.getElementById('pairs');
+let reload = $('#reload');
 let cards = $('.cards');
 
 //shuffle the cards
-arrayCards.sort = ( () => 0.5 - Math.random());
-console.log(arrayCards); //mélange pas OK
+arrayCards.sort = (() => 0.5 - Math.random());
+reload.hide();
 
 cards.click(function (){
     let idx = cards.index($(this));
@@ -22,16 +23,31 @@ cards.click(function (){
             arrayStock = [];
         }
         else {
-            score--;
-            pairs.innerHTML = score;
             setTimeout( () =>  {
                 cards[arrayStock[0]].style.backgroundImage = `url("cards/couv.png")`;
                 cards[arrayStock[1]].style.backgroundImage = `url("cards/couv.png")`;
                 arrayStock = [];
-            },700);
+            },500);
         }
     }
-    if ( arrayStock[idx] === arrayCards[0]) {
-        alert('vous avez gagné');
+    if ( score === 6) {
+        endGame();
     }
 });
+
+function endGame () {
+    $('.line').hide();
+    $('#point').hide();
+    reload.show();
+    $('#endGame').css({
+        "width" : "80%",
+        "height" : "80vh",
+        "backgroundColor" : "#0000008B",
+        "margin" : "0 auto",
+        "z-index" : "2"
+    });
+    reload.click (function (){
+        location.reload();
+    });
+    $('#resume').text("Votre score est de " + score + " points. Félicitation !");
+}

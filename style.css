@@ -8,6 +8,12 @@ html {
     font-size: 65.5%;
 }
 
+body {
+    background-image: url("table.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .line {
     display: flex;
     flex-wrap: wrap;
@@ -15,12 +21,36 @@ html {
     align-items: center;
     width: 90%;
     height: 20vh;
+    margin-top: 3rem;
 }
 
 .cards {
     border: 2px solid black;
     border-radius: 10px;
-    width: 120px;
-    height: 75%;
+    width: 148px;
+    height: 100%;
     background-image: url("cards/couv.png");
 }
+
+#point {
+    margin-top: 2rem;
+    font-size: 3rem;
+    color: beige;
+    text-align: center;
+}
+
+#pairs {
+    font-weight: bold;
+}
+
+#endGame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#resume {
+    font-size: 5rem;
+    color: beige;
+}
+
