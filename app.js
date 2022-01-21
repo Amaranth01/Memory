@@ -17,6 +17,7 @@ cards.click(function (){
     arrayStock.push(idx);
 
     if (arrayStock.length === 2) {
+        //Compare the cards, if the pair is found the score is incremented
         if (arrayCards[arrayStock[0]] === arrayCards[arrayStock[1]]) {
             score++;
             pairs.innerHTML = score;
@@ -24,12 +25,14 @@ cards.click(function (){
         }
         else {
             setTimeout( () =>  {
+                //Turn over the cards if the pair is not found
                 cards[arrayStock[0]].style.backgroundImage = `url("cards/couv.png")`;
                 cards[arrayStock[1]].style.backgroundImage = `url("cards/couv.png")`;
                 arrayStock = [];
             },500);
         }
     }
+    //conditions to complete the game
     if ( score === 6) {
         endGame();
     }
